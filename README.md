@@ -10,3 +10,6 @@
       /var/lib/gems/2.7.0/gems/oxidized-0.28.0/lib/oxidized/model/eltex.rb
       /var/lib/gems/2.7.0/gems/oxidized-0.28.0/lib/oxidized/model/qtech.rb
 
+Применение конфигурации:
+
+        sudo service oxidized restart
