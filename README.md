@@ -1,0 +1,2 @@
+# forOxidized
+Файлы  Oxidized::Model
