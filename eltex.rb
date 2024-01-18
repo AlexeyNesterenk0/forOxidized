@@ -1,4 +1,5 @@
 class ELTEX < Oxidized::Model
+  prompt /^\s?[\w.@\(\)-]+[#>]\s?$/
   comment '! '
 
   cmd :all do |cfg|
