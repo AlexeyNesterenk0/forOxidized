@@ -1,7 +1,6 @@
-class ELTEX < Oxidized::Model
-  prompt /^\s?[\w.@\(\)-]+[#>]\s?$/
+lass ELTEX < Oxidized::Model
   comment '! '
-
+  prompt /^\s?[\w.@\(\)-]+[#>]\s?$/
   cmd :all do |cfg|
     cfg.cut_both
   end
@@ -12,7 +11,9 @@ class ELTEX < Oxidized::Model
     cfg.gsub! /^(snmp-server user .+ auth \S+) .+/, '\\1 <secret hidden>'
     cfg.gsub! /^(enable secret) .+/, '\\1 <secret hidden>'
     cfg.gsub! /^(username .+ password \d) .+/, '\\1 <secret hidden>'
-    cfg.gsub! /^(enable password(?: level \d+)? \d) .+/, '\\1 <secret hidden>'
+    cfg.gsub! /^(enable password(?: level \d+(?: encrypted)?)?) .+/, '\\1 <configuration removed>'
+    cfg.gsub! /^(encrypted radius-server(?: host \d+.\d+.\d+.+\d)? key) .+/, '\\1 <configuration removed>'
+    cfg.gsub! /^(encrypted snmp-server community-group) .+/, '\\1 <configuration removed>'
     cfg.gsub! /^((webmaster level d{0,10}\s)?username \w{0,20} \w{0,20}*\s?\d{0,20}*\s?) .+/, '\\1 <configuration removed>'
     cfg
   end
